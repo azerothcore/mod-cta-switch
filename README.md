@@ -38,6 +38,7 @@ This module offers two options to select which items to automatically save once 
        Default:     0 - Disabled
 
 2) ModCTASwitch.SwitchEots, ModCTASwitch.SwitchSota, ModCTASwitch.SwitchIoc
+
         Description: When the Call to Arms! event starts, switch it to another one specified in this config.
         Example:     ModCTASwitch.SwitchEots = 19 -- Call to Arms! Eye of the Storm will be replaced with Call to Arms! Warsong Gulch.
         Default:    ModCTASwitch.SwitchEots = 19 (Warsong Gulch)
