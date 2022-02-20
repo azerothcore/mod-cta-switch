@@ -54,14 +54,14 @@ public:
         std::vector<uint16> eventIds = { EVENT_CTA_ALTERAC_VALLEY, EVENT_CTA_ARATHI_BASIN, EVENT_CTA_WARSONG_GULCH,
             EVENT_CTA_EYE_OF_THE_STORM, EVENT_CTA_ISLE_OF_CONQUEST, EVENT_CTA_STRAND_OF_THE_ANCIENTS };
 
-        for (uint16 activeEvent : eventIds)
+        for (uint16 const& activeEvent : eventIds)
         {
             if (sGameEventMgr->IsActiveEvent(activeEvent))
             {
-                time_t t = time(NULL);
+                time_t t = time(nullptr);
                 tm* now = localtime(&t);
 
-                if (now->tm_wday == 2)
+                if (now->tm_wday == 2 /* Tuesday */)
                 {
                     GameEventMgr::GameEventDataMap const& events = sGameEventMgr->GetEventMap();
 
