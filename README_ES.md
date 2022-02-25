@@ -1,66 +1,58 @@
- [English](README.md) | [Español](README_ES.md)
+# Módulo de cambio: ¡Llamada a las armas!
 
-# PARTE 1 - Cómo crear su propio módulo
-
-Puede utilizar estos scripts para iniciar su proyecto:
-
-[Ejemplos de scripts](https://github.com/azerothcore/azerothcore-boilerplates)
-
-### ¿Cómo probar su módulo?
-
-Desactivar PCH (cabeceras pre-compiladas) e intentar compilar. Si ha olvidado algunas cabeceras, es hora de añadirlas. Para desactivar PCH, siga este [link](https://github.com/azerothcore/azerothcore-wotlk/wiki/CMake-options) y ponga `USE_COREPCH ` a 0 con Cmake.
-
--------------------------------------------------------
-
-# PARTE 2 - EJEMPLO DE UN README.md
-Recuerde que el README.md le explica al resto de las personas que es lo que hace su módulo. Recomendamos escribirlo en ingles quizás, aunque puede ser traducido luego a otros idiomas.
-
-# MI NUEVO MÓDULO (título)
-
-## Descripción
-
-Este módulo permite hacer esto y esto.
-(Debe explicar para que se va a utilizar el modulo, cuál es su utilidad)
-
-## Cómo utilizar
-
-Haz esto y aquello.
-
-Puedes agregar una carpeta de pantalla:
-
-[screenshot](/screenshots/my_module.png?raw=true "screenshot")
-
-O incluso un video donde expliques su uso:
-
-[Youtube](https://www.youtube.com/watch?v=T6UEX47mPeE)
-
+Este módulo cambia el evento de ¡Llamada a las armas! con otro evento PvP de tu elección una vez que comienza y los detiene los martes.
 
 ## Requisitos
 
-Se debe especificar que versión de azerothcore requiere, porque podría ser incompatible con alguna más adelante. Entonces aclarar por las dudas su compatibilidad no está de más.
+Este módulo requiere actualmente:
 
-Mi nuevo módulo requiere:
-
-- AzerothCore v4.0.0+
-
+AzerothCore v1.0.2+
 
 ## Instalación
 
+### 1) Simplemente coloca el módulo en la carpeta `modules` de tu carpeta de fuentes de AzerothCore.
+
+Puedes clonarlo vía git en el directorio azerothcore/modules:
+
+```sh
+cd path/to/azerothcore/modules
+git clone https://github.com/Nyeriah/mod-cta-switch.git
 ```
-1) Simplemente coloque el módulo dentro del directorio `modules` de AzerothCore (repositorio), no la compilación.
-2) Importe el SQL manualmente a la base de datos correcta (auth, mundo o caracteres) o con el `db_assembler.sh` (si se proporciona `include.sh`).
-3) Vuelva a ejecutar el Cmake y genere la compilación necesaria. (Revise la guía)
+
+### 2) Ejecuta de nuevo cmake y lanza una compilación limpia de AzerothCore
+
+**Eso es todo.**
+
+### (Opcional) Editar la configuración del módulo
+
+Si necesitas cambiar la configuración del módulo, ve a la carpeta de configuración de tu servidor (por ejemplo, **etc**), copia `mod-cta-switch.conf.dist` a `mod-cta-switch.conf` y edítalo como prefieras.
+
+### Opciones de configuración
+
+Este módulo ofrece dos opciones para seleccionar qué objetos guardar automáticamente una vez saqueados:
+
+```
+1) ModCTASwitch.Enable = 0
+
+    Description:    Activa el módulo.
+
+    Default:        0 - Disabled
+
+2) ModCTASwitch.SwitchEots, ModCTASwitch.SwitchSota, ModCTASwitch.SwitchIoc
+
+    Description:    Cuando se inicie el evento ¡Llamada a las armas!, cámbialo por otro especificado en esta configuración.
+
+    Example:        ModCTASwitch.SwitchEots = 19 -- Call to Arms! Eye of the Storm will be replaced with Call to Arms! Warsong Gulch.
+
+    Default:        ModCTASwitch.SwitchEots = 19 (Warsong Gulch)
+                    ModCTASwitch.SwitchSota = 20 (Arathi Basin)
+                    ModCTASwitch.SwitchIoc = 18 (Alterac Valley)
 ```
 
-## Editar la configuración del módulo (opcional)
+## Licencia
 
-Si necesita cambiar la configuración del módulo, vaya a la carpeta de configuración de su servidor (donde está su `worldserver` o `worldserver.exe`), copie `my_module.conf.dist` a `my_module.conf` y edite ese nuevo archivo.
+Este módulo está publicado bajo la [licencia GNU AGPL](https://github.com/azerothcore/mod-transmog/blob/master/LICENSE)
 
+## Autores
 
-## Créditos
-
-* [Yo](https://github.com/YOUR_GITHUB_NAME) (autor del módulo) Edite el enlace para que apunte a su github si lo desea.
-* [BarbzYHOOL](https://github.com/barbzyhool) <!-- Puedes eliminar estas líneas, pero al crear un nuevo modulo, es notificado a estas personas, por lo que está bueno que eso ocurra. -->
-* [Talamortis](https://github.com/talamortis)<!-- Puedes eliminar estas líneas, pero al crear un nuevo modulo, es notificado a estas personas, por lo que está bueno que eso ocurra. -->
-
-AzerothCore: [repository](https://github.com/azerothcore) - [website](http://azerothcore.org/) - [discord chat community](https://discord.gg/PaqQRkd)
+- [Nyeriah](https://github.com/Nyeriah)
