@@ -1,5 +1,7 @@
 # Módulo de cambio: ¡Llamada a las armas!
 
+[English](README.md) | [Español](README_ES.md)
+
 Este módulo cambia el evento de ¡Llamada a las armas! con otro evento PvP de tu elección una vez que comienza y los detiene los martes.
 
 ## Requisitos
