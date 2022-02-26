@@ -1,5 +1,7 @@
 # Call to Arms! Switch module
 
+[English](README.md) | [Español](README_ES.md)
+
 This module switches the Call to Arms! PvP event with another of your choice once it starts and stops them on Tuesdays.
 
 ## Requirements
