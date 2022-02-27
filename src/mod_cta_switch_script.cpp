@@ -44,7 +44,7 @@ public:
         }
     }
 
-    void OnEventCheck(uint16 eventId) override
+    void OnEventCheck(uint16 /*eventId*/) override
     {
         if (!sConfigMgr->GetOption<int>("ModCTASwitch.Enable", 0))
         {
