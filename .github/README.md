@@ -18,7 +18,7 @@ You can do clone it via git under the azerothcore/modules directory:
 
 ```sh
 cd path/to/azerothcore/modules
-git clone https://github.com/Nyeriah/mod-cta-switch.git
+git clone https://github.com/azerothcore/mod-cta-switch.git
 ```
 
 
