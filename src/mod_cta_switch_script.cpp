@@ -2,7 +2,6 @@
  * Copyright (C) 2016+ AzerothCore <www.azerothcore.org>, released under GNU AGPL v3 license: https://github.com/azerothcore/azerothcore-wotlk/blob/master/LICENSE-AGPL3
  */
 
-#include "loader.h"
 #include "ScriptMgr.h"
 #include "Config.h"
 
@@ -30,6 +29,18 @@ public:
 
         switch (eventId)
         {
+            case EVENT_CTA_WARSONG_GULCH:
+                sGameEventMgr->StopEvent(eventId, true);
+                sGameEventMgr->StartEvent(sConfigMgr->GetOption<int>("ModCTASwitch.SwitchWsg", EVENT_CTA_WARSONG_GULCH), true);
+                break;
+            case EVENT_CTA_ARATHI_BASIN:
+                sGameEventMgr->StopEvent(eventId, true);
+                sGameEventMgr->StartEvent(sConfigMgr->GetOption<int>("ModCTASwitch.SwitchAB", EVENT_CTA_ARATHI_BASIN), true);
+                break;
+            case EVENT_CTA_ALTERAC_VALLEY:
+                sGameEventMgr->StopEvent(eventId, true);
+                sGameEventMgr->StartEvent(sConfigMgr->GetOption<int>("ModCTASwitch.SwitchAV", EVENT_CTA_ALTERAC_VALLEY), true);
+                break;
             case EVENT_CTA_EYE_OF_THE_STORM:
                 sGameEventMgr->StopEvent(eventId, true);
                 sGameEventMgr->StartEvent(sConfigMgr->GetOption<int>("ModCTASwitch.SwitchEots", EVENT_CTA_WARSONG_GULCH), true);
