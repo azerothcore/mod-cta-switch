@@ -30,26 +30,98 @@ public:
         switch (eventId)
         {
             case EVENT_CTA_WARSONG_GULCH:
+
+                if (!sConfigMgr->GetOption<int>("ModCTASwitch.SwitchWsg", EVENT_CTA_WARSONG_GULCH))
+                {
+                    return;
+                }
+
+                if (sConfigMgr->GetOption<int>("ModCTASwitch.SwitchWsg", EVENT_CTA_WARSONG_GULCH) == eventId)
+                {
+                    LOG_ERROR("module", "[CTA-Switch]: Error, tried to replace an event with itself. Infinite loop prevented. Event: {}", eventId);
+                    return;
+                }
+
                 sGameEventMgr->StopEvent(eventId, true);
                 sGameEventMgr->StartEvent(sConfigMgr->GetOption<int>("ModCTASwitch.SwitchWsg", EVENT_CTA_WARSONG_GULCH), true);
                 break;
             case EVENT_CTA_ARATHI_BASIN:
+
+                if (!sConfigMgr->GetOption<int>("ModCTASwitch.SwitchAB", EVENT_CTA_ARATHI_BASIN))
+                {
+                    return;
+                }
+
+                if (sConfigMgr->GetOption<int>("ModCTASwitch.SwitchAB", EVENT_CTA_ARATHI_BASIN) == eventId)
+                {
+                    LOG_ERROR("module", "[CTA-Switch]: Error, tried to replace an event with itself. Infinite loop prevented. Event: {}", eventId);
+                    return;
+                }
+
                 sGameEventMgr->StopEvent(eventId, true);
                 sGameEventMgr->StartEvent(sConfigMgr->GetOption<int>("ModCTASwitch.SwitchAB", EVENT_CTA_ARATHI_BASIN), true);
                 break;
             case EVENT_CTA_ALTERAC_VALLEY:
+
+                if (!sConfigMgr->GetOption<int>("ModCTASwitch.SwitchAV", EVENT_CTA_ALTERAC_VALLEY))
+                {
+                    return;
+                }
+
+                if (sConfigMgr->GetOption<int>("ModCTASwitch.SwitchAV", EVENT_CTA_ALTERAC_VALLEY) == eventId)
+                {
+                    LOG_ERROR("module", "[CTA-Switch]: Error, tried to replace an event with itself. Infinite loop prevented. Event: {}", eventId);
+                    return;
+                }
+
                 sGameEventMgr->StopEvent(eventId, true);
                 sGameEventMgr->StartEvent(sConfigMgr->GetOption<int>("ModCTASwitch.SwitchAV", EVENT_CTA_ALTERAC_VALLEY), true);
                 break;
             case EVENT_CTA_EYE_OF_THE_STORM:
+
+                if (!sConfigMgr->GetOption<int>("ModCTASwitch.SwitchEots", EVENT_CTA_EYE_OF_THE_STORM))
+                {
+                    return;
+                }
+
+                if (sConfigMgr->GetOption<int>("ModCTASwitch.SwitchEots", EVENT_CTA_EYE_OF_THE_STORM) == eventId)
+                {
+                    LOG_ERROR("module", "[CTA-Switch]: Error, tried to replace an event with itself. Infinite loop prevented. Event: {}", eventId);
+                    return;
+                }
+
                 sGameEventMgr->StopEvent(eventId, true);
                 sGameEventMgr->StartEvent(sConfigMgr->GetOption<int>("ModCTASwitch.SwitchEots", EVENT_CTA_WARSONG_GULCH), true);
                 break;
             case EVENT_CTA_STRAND_OF_THE_ANCIENTS:
+
+                if (!sConfigMgr->GetOption<int>("ModCTASwitch.SwitchSota", EVENT_CTA_STRAND_OF_THE_ANCIENTS))
+                {
+                    return;
+                }
+
+                if (sConfigMgr->GetOption<int>("ModCTASwitch.SwitchSota", EVENT_CTA_STRAND_OF_THE_ANCIENTS) == eventId)
+                {
+                    LOG_ERROR("module", "[CTA-Switch]: Error, tried to replace an event with itself. Infinite loop prevented. Event: {}", eventId);
+                    return;
+                }
+
                 sGameEventMgr->StopEvent(eventId, true);
                 sGameEventMgr->StartEvent(sConfigMgr->GetOption<int>("ModCTASwitch.SwitchSota", EVENT_CTA_ARATHI_BASIN), true);
                 break;
             case EVENT_CTA_ISLE_OF_CONQUEST:
+
+                if (!sConfigMgr->GetOption<int>("ModCTASwitch.SwitchIoc", EVENT_CTA_ISLE_OF_CONQUEST))
+                {
+                    return;
+                }
+
+                if (sConfigMgr->GetOption<int>("ModCTASwitch.SwitchIoc", EVENT_CTA_ISLE_OF_CONQUEST) == eventId)
+                {
+                    LOG_ERROR("module", "[CTA-Switch]: Error, tried to replace an event with itself. Infinite loop prevented. Event: {}", eventId);
+                    return;
+                }
+
                 sGameEventMgr->StopEvent(eventId, true);
                 sGameEventMgr->StartEvent(sConfigMgr->GetOption<int>("ModCTASwitch.SwitchIoc", EVENT_CTA_ALTERAC_VALLEY), true);
                 break;
