@@ -23,18 +23,14 @@ public:
     void OnStart(uint16 eventId) override
     {
         if (!sConfigMgr->GetOption<int>("ModCTASwitch.Enable", 0))
-        {
             return;
-        }
 
         switch (eventId)
         {
             case EVENT_CTA_WARSONG_GULCH:
 
                 if (!sConfigMgr->GetOption<int>("ModCTASwitch.SwitchWsg", EVENT_CTA_WARSONG_GULCH))
-                {
                     return;
-                }
 
                 if (sConfigMgr->GetOption<int>("ModCTASwitch.SwitchWsg", EVENT_CTA_WARSONG_GULCH) == eventId)
                 {
@@ -48,9 +44,7 @@ public:
             case EVENT_CTA_ARATHI_BASIN:
 
                 if (!sConfigMgr->GetOption<int>("ModCTASwitch.SwitchAB", EVENT_CTA_ARATHI_BASIN))
-                {
                     return;
-                }
 
                 if (sConfigMgr->GetOption<int>("ModCTASwitch.SwitchAB", EVENT_CTA_ARATHI_BASIN) == eventId)
                 {
@@ -64,9 +58,7 @@ public:
             case EVENT_CTA_ALTERAC_VALLEY:
 
                 if (!sConfigMgr->GetOption<int>("ModCTASwitch.SwitchAV", EVENT_CTA_ALTERAC_VALLEY))
-                {
                     return;
-                }
 
                 if (sConfigMgr->GetOption<int>("ModCTASwitch.SwitchAV", EVENT_CTA_ALTERAC_VALLEY) == eventId)
                 {
@@ -80,9 +72,7 @@ public:
             case EVENT_CTA_EYE_OF_THE_STORM:
 
                 if (!sConfigMgr->GetOption<int>("ModCTASwitch.SwitchEots", EVENT_CTA_EYE_OF_THE_STORM))
-                {
                     return;
-                }
 
                 if (sConfigMgr->GetOption<int>("ModCTASwitch.SwitchEots", EVENT_CTA_EYE_OF_THE_STORM) == eventId)
                 {
@@ -96,9 +86,7 @@ public:
             case EVENT_CTA_STRAND_OF_THE_ANCIENTS:
 
                 if (!sConfigMgr->GetOption<int>("ModCTASwitch.SwitchSota", EVENT_CTA_STRAND_OF_THE_ANCIENTS))
-                {
                     return;
-                }
 
                 if (sConfigMgr->GetOption<int>("ModCTASwitch.SwitchSota", EVENT_CTA_STRAND_OF_THE_ANCIENTS) == eventId)
                 {
@@ -112,9 +100,7 @@ public:
             case EVENT_CTA_ISLE_OF_CONQUEST:
 
                 if (!sConfigMgr->GetOption<int>("ModCTASwitch.SwitchIoc", EVENT_CTA_ISLE_OF_CONQUEST))
-                {
                     return;
-                }
 
                 if (sConfigMgr->GetOption<int>("ModCTASwitch.SwitchIoc", EVENT_CTA_ISLE_OF_CONQUEST) == eventId)
                 {
@@ -131,9 +117,7 @@ public:
     void OnEventCheck(uint16 /*eventId*/) override
     {
         if (!sConfigMgr->GetOption<int>("ModCTASwitch.Enable", 0))
-        {
             return;
-        }
 
         std::vector<uint16> eventIds = { EVENT_CTA_ALTERAC_VALLEY, EVENT_CTA_ARATHI_BASIN, EVENT_CTA_WARSONG_GULCH,
             EVENT_CTA_EYE_OF_THE_STORM, EVENT_CTA_ISLE_OF_CONQUEST, EVENT_CTA_STRAND_OF_THE_ANCIENTS };
@@ -158,7 +142,7 @@ public:
                     GameEventData const& eventData = events[activeEvent];
 
                     sGameEventMgr->StopEvent(activeEvent, true);
-                    LOG_INFO("module", "[CTA-Switch]: Stopping {} ({})", eventData.description, activeEvent);
+                    LOG_INFO("module", "[CTA-Switch]: Stopping {} ({})", eventData.Description, activeEvent);
                 }
             }
         }
