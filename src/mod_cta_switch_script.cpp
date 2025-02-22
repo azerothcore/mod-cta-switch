@@ -18,7 +18,10 @@ enum EventIds
 class cta_switch_event_script : public GameEventScript
 {
 public:
-    cta_switch_event_script() : GameEventScript("cta_switch_event_script") { }
+    cta_switch_event_script() : GameEventScript("cta_switch_event_script", {
+        GAMEEVENTHOOK_ON_START,
+        GAMEEVENTHOOK_ON_EVENT_CHECK
+    }) { }
 
     void OnStart(uint16 eventId) override
     {
